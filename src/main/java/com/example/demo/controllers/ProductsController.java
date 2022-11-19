@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
+import com.example.demo.Service.ProductsService;
 import com.example.demo.models.Products;
-import com.example.demo.security.services.ProductsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
