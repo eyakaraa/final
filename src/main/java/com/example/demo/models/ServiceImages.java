@@ -5,12 +5,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @NoArgsConstructor
 @Setter
 @Getter
 @Entity
-public class ServiceImages {
+public class ServiceImages implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,4 +23,7 @@ public class ServiceImages {
             inverseJoinColumns = @JoinColumn(name = "service_id"))
     private Service service;
 
+    public ServiceImages(String name) {
+        this.name = name;
+    }
 }

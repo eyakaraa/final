@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.*;
 
 @NoArgsConstructor
@@ -12,7 +13,7 @@ import java.util.*;
 @Getter
 @Entity
 @Table(name="commandes")
-public class Commande {
+public class Commande implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,4 +36,11 @@ public class Commande {
     @OneToMany
     private List<Items> items = new ArrayList<>();
 
+    public Commande(double totalPrice, Date createdAt, String status, String deliveryAddress, String paymentMethod) {
+        this.totalPrice = totalPrice;
+        this.createdAt = createdAt;
+        this.status = status;
+        this.deliveryAddress = deliveryAddress;
+        this.paymentMethod = paymentMethod;
+    }
 }

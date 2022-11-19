@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-public class Products {
+public class Products implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,4 +28,14 @@ public class Products {
 
     @OneToMany
     private List<ProductImages> productImages = new ArrayList<>();
+
+    public Products(String name, String description, String promotion, double price, int stock, boolean availability, String promoted) {
+        this.name = name;
+        this.description = description;
+        this.promotion = promotion;
+        this.price = price;
+        this.stock = stock;
+        this.availability = availability;
+        this.promoted = promoted;
+    }
 }

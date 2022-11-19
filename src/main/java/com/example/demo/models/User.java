@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.*;
 
 
@@ -17,7 +18,7 @@ import java.util.*;
 //username and email unique use uniqueConstraint
 @Entity
 @Table(name="users",uniqueConstraints = {@UniqueConstraint(columnNames = "username"),@UniqueConstraint(columnNames = "email")})
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -53,5 +54,22 @@ public class User {
     private Set<Commande> commandes = new HashSet<>();
 
     @OneToMany
-    private List<Service> employes = new ArrayList<>();
+    private List<Service> services = new ArrayList<>();
+
+    public User(String username, String email, String encode) {
+        this.username=username;
+        this.email=email;
+
+    }
+
+    public User(String username, String lastName, Date birthday, String email, String password, String phoneNumber, String address, String image) {
+        this.username = username;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.image = image;
+    }
 }

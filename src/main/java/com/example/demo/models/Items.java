@@ -5,13 +5,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @NoArgsConstructor
 @Setter
 @Getter
 @Entity
-public class Items {
+public class Items implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,4 +23,8 @@ public class Items {
             joinColumns = @JoinColumn(name = "items_id"),
             inverseJoinColumns = @JoinColumn(name = "commande_id"))
     private Commande commande;
+
+    public Items(Date date) {
+        this.date = date;
+    }
 }
