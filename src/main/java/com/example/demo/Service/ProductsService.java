@@ -28,9 +28,8 @@ public class ProductsService {
         return productsRepo.save(products);
     }
     public Products findProductById(Long id){
-        return productsRepo.findProductById(id).orElseThrow(()->new ResourceNotFoundException("Resource by id "+id+"was not found"));
+        return productsRepo.findById(id).orElseThrow(()->new ResourceNotFoundException("Resource by id "+id+"was not found"));
     }
     public void deleteProduct(Long id){
-        productsRepo.deleteProductsById(id);
-    }
+        productsRepo.deleteById(id);    }
 }

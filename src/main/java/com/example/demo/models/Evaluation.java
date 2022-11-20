@@ -32,4 +32,32 @@ public class Evaluation implements Serializable {
     public Evaluation(String value) {
         this.value = value;
     }
+    public Evaluation( ) {
+      
+    }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+    
 }

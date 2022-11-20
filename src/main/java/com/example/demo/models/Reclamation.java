@@ -28,4 +28,40 @@ public class Reclamation implements Serializable {
         this.reclamationObject = reclamationObject;
         this.reclamationContent = reclamationContent;
     }
+    public Reclamation( ) {
+      
+    }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getReclamationObject() {
+		return reclamationObject;
+	}
+
+	public void setReclamationObject(String reclamationObject) {
+		this.reclamationObject = reclamationObject;
+	}
+
+	public String getReclamationContent() {
+		return reclamationContent;
+	}
+
+	public void setReclamationContent(String reclamationContent) {
+		this.reclamationContent = reclamationContent;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+    
 }

@@ -29,13 +29,78 @@ public class Products implements Serializable {
     @OneToMany
     private List<ProductImages> productImages = new ArrayList<>();
 
-    public Products(String name, String description, String promotion, double price, int stock, boolean availability, String promoted) {
-        this.name = name;
-        this.description = description;
-        this.promotion = promotion;
-        this.price = price;
-        this.stock = stock;
-        this.availability = availability;
-        this.promoted = promoted;
-    }
+ 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getPromotion() {
+		return promotion;
+	}
+
+	public void setPromotion(String promotion) {
+		this.promotion = promotion;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public boolean isAvailability() {
+		return availability;
+	}
+
+	public void setAvailability(boolean availability) {
+		this.availability = availability;
+	}
+
+	public String getPromoted() {
+		return promoted;
+	}
+
+	public void setPromoted(String promoted) {
+		this.promoted = promoted;
+	}
+
+	public List<ProductImages> getProductImages() {
+		return productImages;
+	}
+
+	public void setProductImages(List<ProductImages> productImages) {
+		this.productImages = productImages;
+	}
+    
+    
 }
