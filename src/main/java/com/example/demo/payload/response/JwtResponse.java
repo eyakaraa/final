@@ -2,27 +2,45 @@ package com.example.demo.payload.response;
 
 import java.util.List;
 
+import com.example.demo.models.Modem;
+
 public class JwtResponse {
     private String token;
     private String type = "Bearer";
     private Long id;
     private String username;
     private String email;
-    private List<String> roles;
+    private String firstname;
+    private String lastname;
+    private String status;
+    private String role;
+    private List<Modem> produit;
 
-    public JwtResponse(String accessToken, Long id, String username, String email, List<String> roles) {
+    public JwtResponse(String accessToken, String firstname,String lastname,String status, Long id, String username, String email, String roles,List<Modem> Produits) {
         this.token = accessToken;
         this.id = id;
         this.username = username;
         this.email = email;
-        this.roles = roles;
+        this.role = roles;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.status = status;
+        this.produit = Produits;
     }
+    
+    public List<Modem> getProduit() {
+		return produit;
+	}
 
-    public String getAccessToken() {
+	public void setProduit(List<Modem> produit) {
+		this.produit = produit;
+	}
+
+	public String getToken() {
         return token;
     }
 
-    public void setAccessToken(String accessToken) {
+    public void setToken(String accessToken) {
         this.token = accessToken;
     }
 
@@ -58,7 +76,44 @@ public class JwtResponse {
         this.username = username;
     }
 
-    public List<String> getRoles() {
-        return roles;
+    public String getRole() {
+        return role;
     }
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public void setRole(String roles) {
+		this.role = roles;
+	}
+    
 }
